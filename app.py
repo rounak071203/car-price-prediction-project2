@@ -4,8 +4,8 @@ import pickle as pkl
 
 st.title("Car Price Prediction Project")
 df = pd.read_csv("cleaned_data.csv")
-pipe = pkl.load(open("car-price-predictor.pkl", "rb"))
-
+with open("car-price-predictor.pkl", "rb") as f:
+    pipe = pkl.load(f)
 companies = sorted(df["company"].unique())
 fuel_types = sorted(df["fuel_type"].unique())
 
